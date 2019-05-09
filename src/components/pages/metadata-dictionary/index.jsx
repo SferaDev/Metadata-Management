@@ -1,6 +1,6 @@
 import _ from "lodash";
 import React from "react";
-import Select from 'react-select';
+import Select from "react-select";
 import PropTypes from "prop-types";
 import i18n from "@dhis2/d2-i18n";
 import { withRouter } from "react-router-dom";
@@ -8,9 +8,11 @@ import { withSnackbar } from "d2-ui-components";
 import { withStyles } from "@material-ui/core";
 
 import PageHeader from "../../common/PageHeader";
-import {d2ModelFactory} from "../../../models/d2ModelFactory";
+import MarkdownElement from "../../markdown-element";
+import { d2ModelFactory } from "../../../models/d2ModelFactory";
+import Dictionary from "../../../logic/dictionary";
 
-const styles = theme => ({
+const styles = () => ({
     options: {
         display: "flex",
     },
@@ -33,7 +35,7 @@ class MetadataDictionary extends React.Component {
     };
 
     state = {
-        isLoading: true,
+        mainContent: "",
         metadataTypes: [],
         metadataObjects: [],
     };
@@ -60,12 +62,18 @@ class MetadataDictionary extends React.Component {
         this.setState({ metadataObjects });
     };
 
-    selectMetadataObject = selectedOption => {
-        this.props.history.push(`/metadata-dictionary/${selectedOption.value}`);
+    selectMetadataObject = async selectedOption => {
+        const id = selectedOption.value;
+
+        this.props.history.push(`/metadata-dictionary/${id}`);
+
+        const mainContent = id ? await Dictionary.build(id) : "";
+        this.setState({ mainContent });
     };
 
     componentDidMount = async () => {
-        const { d2 } = this.props;
+        const { d2, match } = this.props;
+        const { id } = match.params;
 
         const metadataTypes = _(d2.models)
             .keys()
@@ -75,28 +83,25 @@ class MetadataDictionary extends React.Component {
             .map(model => {
                 return { label: d2.models[model].displayName, value: model };
             })
-            .sortBy('label')
-            .sortedUniqBy('label');
+            .sortBy("label")
+            .sortedUniqBy("label");
 
-        this.setState({ metadataTypes, isLoading: false });
+        const mainContent = id ? await Dictionary.build(id) : "";
+
+        this.setState({ metadataTypes, mainContent });
     };
 
     render() {
         const { classes } = this.props;
-        const { isLoading, metadataTypes, metadataObjects } = this.state;
-        const { id } = this.props.match.params;
+        const { mainContent, metadataTypes, metadataObjects } = this.state;
 
         return (
             <React.Fragment>
-                <PageHeader
-                    title={i18n.t("Metadata Dictionary")}
-                    onBackClick={this.goBack}
-                />
+                <PageHeader title={i18n.t("Metadata Dictionary")} onBackClick={this.goBack} />
 
                 <div className={classes.options}>
                     <div className={classes.metadataTypeSelect}>
                         <Select
-                            isLoading={isLoading}
                             isSearchable={true}
                             options={metadataTypes}
                             onChange={this.changeMetadataType}
@@ -111,6 +116,7 @@ class MetadataDictionary extends React.Component {
                     </div>
                 </div>
 
+                {mainContent && <MarkdownElement className={classes.code} text={mainContent} />}
             </React.Fragment>
         );
     }
