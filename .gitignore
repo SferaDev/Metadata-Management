@@ -32,6 +32,3 @@ cypress/videos/
 
 # IntelliJ
 .idea/*
-
-# App config
-/public/app-config.json
