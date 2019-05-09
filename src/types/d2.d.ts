@@ -121,3 +121,7 @@ export interface MetadataImportStats {
     updated: number;
     total: number;
 }
+
+export interface MetadataPackage {
+    [metadataType: string]: any[];
+}

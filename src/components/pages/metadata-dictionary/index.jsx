@@ -10,7 +10,7 @@ import { withStyles } from "@material-ui/core";
 import PageHeader from "../../common/PageHeader";
 import MarkdownElement from "../../markdown-element";
 import { d2ModelFactory } from "../../../models/d2ModelFactory";
-import Dictionary from "../../../logic/dictionary";
+import Dictionary from "../../../models/dictionary";
 
 const styles = () => ({
     options: {
@@ -24,6 +24,11 @@ const styles = () => ({
         margin: "1em",
         minWidth: "40em",
     },
+    code: {
+        paddingLeft: "2em",
+        paddingBottom: "2em",
+        paddingRight: "2em",
+    }
 });
 
 class MetadataDictionary extends React.Component {
@@ -67,8 +72,15 @@ class MetadataDictionary extends React.Component {
 
         this.props.history.push(`/metadata-dictionary/${id}`);
 
-        const mainContent = id ? await Dictionary.build(id) : "";
+        const mainContent = await this.refreshDictionary(id);
         this.setState({ mainContent });
+    };
+
+    refreshDictionary = async id => {
+        const { d2 } = this.props;
+        const dictionary = id ? await Dictionary.build(d2, id) : null;
+        console.log("DEBUG", dictionary);
+        return dictionary ? dictionary.generateMarkdown(d2) : "";
     };
 
     componentDidMount = async () => {
@@ -86,7 +98,7 @@ class MetadataDictionary extends React.Component {
             .sortBy("label")
             .sortedUniqBy("label");
 
-        const mainContent = id ? await Dictionary.build(id) : "";
+        const mainContent = await this.refreshDictionary(id);
 
         this.setState({ metadataTypes, mainContent });
     };
