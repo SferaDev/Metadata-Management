@@ -14,4 +14,3 @@
 
 ### :bookmark_tabs: Others
 
-- Any change in the [GUI library](https://github.com/EyeSeeTea/d2-ui-components)? If so, what branch/PR?
