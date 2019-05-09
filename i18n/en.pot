@@ -5,13 +5,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-05-09T17:51:59.330Z\n"
-"PO-Revision-Date: 2019-05-09T17:51:59.330Z\n"
+"POT-Creation-Date: 2019-05-09T18:16:55.281Z\n"
+"PO-Revision-Date: 2019-05-09T18:16:55.281Z\n"
 
-msgid "Metadata Export"
+msgid "Metadata Dictionary"
 msgstr ""
 
-msgid "Metadata Maintenance App"
+msgid "DHIS2 Maintenance"
 msgstr ""
 
 msgid "Help"
