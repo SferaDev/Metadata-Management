@@ -21,8 +21,6 @@ export abstract class D2Model {
     // Metadata Type should be defined on subclasses
     protected static metadataType: string;
     protected static groupFilterName: string;
-    protected static excludeRules: string[] = [];
-    protected static includeRules: string[] = [];
 
     // Other static properties can be optionally overridden on subclasses
     protected static columns = d2BaseModelColumns;
@@ -75,14 +73,6 @@ export abstract class D2Model {
         return this.metadataType;
     }
 
-    public static getExcludeRules(): string[][] {
-        return this.excludeRules.map(_.toPath);
-    }
-
-    public static getIncludeRules(): string[][] {
-        return this.includeRules.map(_.toPath);
-    }
-
     public static getColumns(): TableLabel[] {
         return this.columns;
     }
@@ -100,28 +90,6 @@ export class OrganisationUnitModel extends D2Model {
     protected static metadataType = "organisationUnit";
     protected static groupFilterName = "organisationUnitGroups";
 
-    protected static excludeRules = [
-        "legendSets",
-        "dataSets",
-        "programs",
-        "user",
-        "users",
-        "userAccesses",
-        "userGroupAccesses",
-        "organisationUnitGroups.user",
-        "organisationUnitGroups.userAccesses",
-        "organisationUnitGroups.userGroupAccesses",
-        "organisationUnitGroups.organisationUnitGroupSets.user",
-        "organisationUnitGroups.organisationUnitGroupSets.userAccesses",
-        "organisationUnitGroups.organisationUnitGroupSets.userGroupAccesses",
-    ];
-    protected static includeRules = [
-        "attribute",
-        "organisationUnitGroups",
-        "organisationUnitGroups.attributes",
-        "organisationUnitGroups.organisationUnitGroupSets",
-        "organisationUnitGroups.organisationUnitGroupSets.attributes",
-    ];
     protected static columns = organisationUnitsColumns;
     protected static details = organisationUnitsDetails;
 
