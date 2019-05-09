@@ -16,7 +16,7 @@ class Root extends React.Component {
         return (
             <Switch>
                 <Route
-                    path={"/metadata-dictionary"}
+                    path={"/metadata-dictionary/:id?"}
                     render={props => <MetadataDictionary d2={d2} {...props} />}
                 />
 

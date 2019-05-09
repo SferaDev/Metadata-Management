@@ -40,6 +40,7 @@
     "react-jss": "^8.6.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.6-next.c662dfb0",
+    "react-select": "^2.4.3",
     "ts-jest": "^23.10.5"
   },
   "scripts": {
