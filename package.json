@@ -1,7 +1,7 @@
 {
   "name": "metadata-management",
   "description": "Metadata Management",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "license": "GPL-3.0",
   "author": "Alexis Rico",
   "homepage": ".",
@@ -87,14 +87,14 @@
     "wait-on": "^3.2.0"
   },
   "manifest.webapp": {
-    "name": "metadata-synchronization",
-    "description": "Metadata Synchronization",
+    "name": "metadata-management",
+    "description": "Metadata Management",
     "icons": {
       "48": "icon.png"
     },
     "developer": {
-      "url": "https://www.eyeseetea.com/",
-      "name": "EyeSeeTea team"
+      "url": "https://github.com/SferaDev",
+      "name": "Alexis Rico"
     },
     "activities": {
       "dhis": {
