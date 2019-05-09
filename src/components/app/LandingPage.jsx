@@ -7,7 +7,7 @@ import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import { withStyles } from "@material-ui/core/styles";
 import { withRouter } from "react-router";
-import {goToDhis2Url} from "../../utils/routes";
+import { goToDhis2Url } from "../../utils/routes";
 
 const lightGray = "#7a7a7a";
 const styles = _theme => ({
@@ -70,8 +70,8 @@ class LandingPage extends React.Component {
     render() {
         const { classes } = this.props;
         const items = [
-            ["metadata-dictionary", i18n.t("Metadata Export"), "library_books"],
-            ["dhis2-maintenance", i18n.t("Metadata Maintenance App"), "import_export"],
+            ["metadata-dictionary", i18n.t("Metadata Dictionary"), "library_books"],
+            ["dhis2-maintenance", i18n.t("DHIS2 Maintenance"), "import_export"],
         ];
         const menuItems = items.map(([key, title, icon]) => (
             <GridListTile

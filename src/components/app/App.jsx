@@ -6,7 +6,6 @@ import JssProvider from "react-jss/lib/JssProvider";
 import { createGenerateClassName } from "@material-ui/core/styles";
 import OldMuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { SnackbarProvider, LoadingProvider } from "d2-ui-components";
-import i18n from "@dhis2/d2-i18n";
 
 import "./App.css";
 import Root from "./Root";
@@ -39,7 +38,6 @@ class App extends Component {
                                         <Root d2={d2} />
                                     </SnackbarProvider>
                                 </div>
-
                             </LoadingProvider>
                         </OldMuiThemeProvider>
                     </MuiThemeProvider>
