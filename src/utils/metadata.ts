@@ -17,9 +17,10 @@ export async function getMetadata(d2: D2, elements: string[]): Promise<MetadataP
             axios.get(requestUrl, {
                 withCredentials: true,
                 params: {
-                    fields: ":all",
+                    fields: ":all,!organisationUnits",
                     filter: "id:in:[" + requestElements + "]",
                     defaults: "EXCLUDE",
+                    skipSharing: true,
                 },
             })
         );
@@ -56,12 +57,34 @@ export function getAllReferences(
     return result;
 }
 
-export async function getExpression(d2: D2, expression: string): Promise<string> {
-    const requestUrl = d2.Api.getApi().baseUrl + "/expressions/description";
-    const response = await axios.get(requestUrl, {
+export async function getExpression(d2: D2, expression: string): Promise<string | null> {
+    let requestUrl = d2.Api.getApi().baseUrl + "/expressions/description";
+    let response = await axios.get(requestUrl, {
         withCredentials: true,
         params: { expression },
     });
 
-    return response.data.description;
+    if (response.data.description) return response.data.description;
+
+    requestUrl = d2.Api.getApi().baseUrl + "/programIndicators/expression/description";
+    response = await axios.post(requestUrl, expression, {
+        withCredentials: true,
+        headers: {
+            "Content-Type": "text/plain",
+        },
+    });
+
+    if (response.data.description) return response.data.description;
+
+    requestUrl = d2.Api.getApi().baseUrl + "/programIndicators/filter/description";
+    response = await axios.post(requestUrl, expression, {
+        withCredentials: true,
+        headers: {
+            "Content-Type": "text/plain",
+        },
+    });
+
+    if (response.data.description) return response.data.description;
+
+    return null;
 }

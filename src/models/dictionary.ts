@@ -1,9 +1,10 @@
 import _ from "lodash";
-// @ts-ignore FIXME
 import mdTable from "markdown-table";
+import i18n from "@dhis2/d2-i18n";
 
 import { getAllReferences, getExpression, getMetadata, uidRegEx } from "../utils/metadata";
 import { D2, MetadataPackage } from "../types/d2";
+import { mdLinkId } from "../utils/markdown";
 
 export default class Dictionary {
     private readonly model: string;
@@ -28,16 +29,19 @@ export default class Dictionary {
             .first();
         if (!model || !element) return null;
 
+        const possibleReferences = JSON.stringify(element).match(uidRegEx);
         const dependencies = _(getAllReferences(d2, element, model))
             .values()
             .flattenDeep()
+            // @ts-ignore FIXME
+            .union(possibleReferences)
             .uniq()
+            .filter((e: string): boolean => e !== element.id)
             .value();
-        const possibleReferences = JSON.stringify(element).match(uidRegEx);
-        // @ts-ignore FIXME
-        const references = await getMetadata(d2, [...dependencies, ...possibleReferences]);
 
-        // @ts-ignore FIXME
+        const references = await getMetadata(d2, dependencies);
+        if (references["users"]) delete references["users"];
+
         return new Dictionary(model, element, references);
     }
 
@@ -82,6 +86,8 @@ export default class Dictionary {
 
         if (d2.models[model].name === "indicator") {
             markdown.push(
+                `## Formulas`,
+
                 `### Numerator`,
                 `**Description:** ${element.numeratorDescription}`,
                 `**Formula:** ${await getExpression(d2, element.numerator)}`,
@@ -95,6 +101,66 @@ export default class Dictionary {
         return markdown;
     }
 
+    private async buildReferences(d2: D2): Promise<string[]> {
+        const { references } = this;
+        const markdown: string[] = [];
+
+        markdown.push("## References");
+
+        const properties = [
+            {
+                label: i18n.t("Name"),
+                value: "name",
+            },
+            {
+                label: i18n.t("Description"),
+                value: "description",
+            },
+            {
+                label: i18n.t("Expression"),
+                value: "expression",
+                expression: true,
+            },
+            {
+                label: i18n.t("Filter"),
+                value: "filter",
+                expression: true,
+            },
+        ];
+
+        for (const key in references) {
+            if (references.hasOwnProperty(key)) {
+                const val = references[key];
+
+                markdown.push(`### ${d2.models[key].displayName}`);
+
+                const ids = ["Identifier", ...val.map((e): string => mdLinkId(e.id))];
+
+                const table = [];
+
+                for (const prop of properties) {
+                    const details = [prop.label];
+                    for (const ref of val) {
+                        const text =
+                            prop.expression && ref[prop.value]
+                                ? await getExpression(d2, ref[prop.value])
+                                : ref[prop.value];
+                        details.push(text ? text : ref[prop.value]);
+                    }
+                    if (_.compact(details).length > 1) table.push(details);
+                }
+
+                // @ts-ignore FIXME
+                const result = [..._.zip(ids, ...table)];
+
+                // @ts-ignore FIXME
+                markdown.push(mdTable(result));
+            }
+        }
+
+        return markdown;
+    }
+
     public async generateMarkdown(d2: D2): Promise<string> {
         const markdown: string[] = [];
 
@@ -103,6 +169,8 @@ export default class Dictionary {
         markdown.push(...this.buildDescription());
 
         markdown.push(...(await this.buildSpecificPart(d2)));
+
+        markdown.push(...(await this.buildReferences(d2)));
 
         return _.join(markdown, "\n\n");
     }
