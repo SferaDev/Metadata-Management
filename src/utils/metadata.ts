@@ -5,6 +5,7 @@ import { isValidUid } from "d2/uid";
 
 import { cleanModelName } from "./d2";
 import { D2, MetadataPackage } from "../types/d2";
+import { func } from "prop-types";
 
 export async function getMetadata(d2: D2, elements: string[]): Promise<MetadataPackage> {
     const promises = [];
@@ -52,4 +53,14 @@ export function getAllReferences(
         }
     });
     return result;
+}
+
+export async function getExpression(d2: D2, expression: string): Promise<string> {
+    const requestUrl = d2.Api.getApi().baseUrl + "/expressions/description";
+    const response = await axios.get(requestUrl, {
+        withCredentials: true,
+        params: { expression },
+    });
+
+    return response.data.description;
 }
