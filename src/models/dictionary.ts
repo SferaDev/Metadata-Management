@@ -2,19 +2,17 @@ import _ from "lodash";
 // @ts-ignore FIXME
 import mdTable from "markdown-table";
 
-import { getAllReferences, getExpression, getMetadata } from "../utils/metadata";
+import { getAllReferences, getExpression, getMetadata, uidRegEx } from "../utils/metadata";
 import { D2, MetadataPackage } from "../types/d2";
 
 export default class Dictionary {
     private readonly model: string;
     private readonly element: any;
-    private readonly dependencies: string[];
     private readonly references: MetadataPackage;
 
-    constructor(model: string, element: any, dependencies: string[], references: MetadataPackage) {
+    constructor(model: string, element: any, references: MetadataPackage) {
         this.model = model;
         this.element = element;
-        this.dependencies = dependencies;
         this.references = references;
     }
 
@@ -35,11 +33,12 @@ export default class Dictionary {
             .flattenDeep()
             .uniq()
             .value();
+        const possibleReferences = JSON.stringify(element).match(uidRegEx);
         // @ts-ignore FIXME
-        const references = await getMetadata(d2, dependencies);
+        const references = await getMetadata(d2, [...dependencies, ...possibleReferences]);
 
         // @ts-ignore FIXME
-        return new Dictionary(model, element, dependencies, references);
+        return new Dictionary(model, element, references);
     }
 
     private buildTitle(): string[] {
