@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import _ from "lodash";
 import { init, config, getUserSettings, getManifest } from "d2";
-import { HashRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import "font-awesome/css/font-awesome.min.css";
 
 import App from "./components/app/App";
@@ -66,9 +66,9 @@ async function main() {
         const userSettings = await getUserSettings();
         configI18n(userSettings);
         ReactDOM.render(
-            <HashRouter>
+            <BrowserRouter>
                 <App d2={d2} />
-            </HashRouter>,
+            </BrowserRouter>,
             document.getElementById("root")
         );
     } catch (err) {
