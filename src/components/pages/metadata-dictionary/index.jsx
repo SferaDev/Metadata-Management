@@ -28,7 +28,7 @@ const styles = () => ({
         paddingLeft: "2em",
         paddingBottom: "2em",
         paddingRight: "2em",
-    }
+    },
 });
 
 class MetadataDictionary extends React.Component {
@@ -80,7 +80,7 @@ class MetadataDictionary extends React.Component {
         const { d2 } = this.props;
         const dictionary = id ? await Dictionary.build(d2, id) : null;
         console.log("DEBUG", dictionary);
-        return dictionary ? dictionary.generateMarkdown(d2) : "";
+        return dictionary ? await dictionary.generateMarkdown(d2) : "";
     };
 
     componentDidMount = async () => {
