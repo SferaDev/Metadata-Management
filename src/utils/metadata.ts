@@ -5,7 +5,8 @@ import { isValidUid } from "d2/uid";
 
 import { cleanModelName } from "./d2";
 import { D2, MetadataPackage } from "../types/d2";
-import { func } from "prop-types";
+
+export const uidRegEx = /[a-zA-Z][a-zA-Z0-9]{10}/g;
 
 export async function getMetadata(d2: D2, elements: string[]): Promise<MetadataPackage> {
     const promises = [];
