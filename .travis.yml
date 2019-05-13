@@ -1,42 +1,35 @@
 language: node_js
 node_js:
-- '10'
+  - "10"
 cache: yarn
 jobs:
   include:
-  - stage: Test
-    name: Unit and integration tests
-    script: yarn test
-  - stage: Tag and Deploy
-    name: Deploy to GitHub
-    if: branch = master
-    script:
-    - npm version patch
-    - yarn build-webapp
+    -
+      name: "Unit and integration tests"
+      script: "yarn test"
+      stage: "Test"
 deploy:
-  - Github Releases (Development)
-    on:
-      repo: SferaDev/Metadata-Management
-      branch: development
-    provider: releases
+  -
     api_key:
       secure: aYn4Hd/FuFwpaz0V//5T5OpwEMmBwFxS5aIZBjZty5mKct8aAR/+SBWAmx21V4ekb2OMksc4pvRh6DF2cFsVXDX7UWJ1ngdKH311FnvisoEq4hy7GSTBCfEzELVsSN3MNq5mt9JeENHtAYkk7HlMILUfWWgl21l0seC30adUTfm1pDxB/raRIX6tfAqMIO16p7YtwfAAQvUn9n1RVhA3nTL6hCDh8orqb2JP98wO8tqAWtqjCQZLBcgB8RvH7bOwBn93Co4/Hw5Gf/Y+/eLoVyRZjUwbmP5NwrG60XSOKoG89jZcn1tt6tMmYGqs7cOtMWfNUeQ+elBseh0UZoCBLu6pKPwphjq3wk9qO/NANBN/V908ciaWGeiP9jnu8AZO2m4uTacvWQU3kafg4N/n2kGpkSdHYctJjxXXNTps3z/MEmgvRqp6PUa5X/+Ml37hVZj/dpHYts4xZuwn4xDHfbB10IWPPgaTeQ02OataPm3z5ZjGEwFGSoP6SczH7a0ZOGgSvW7ND3Dbt51aTA3f6p1p9GupicrKJSGGb9WQq+ya9ftbzZ+ENU0147xWttz4tQmCGZj14j4RjaC3ylN6RWxPsReN946FHlSU6/2qag+1yeFDmQ25q/IEEbQK7R4nkKkcTYEOeR3GA27U5GvpLz0dixLPUVbXGnTQtPa6nVs=
-    file: metadata-management.zip
     before_deploy:
-      - git config --local user.name "Alexis Rico"
-      - git config --local user.email "sferadev@gmail.com"
-      - export TRAVIS_TAG=$(git rev-parse --abbrev-ref HEAD)-${TRAVIS_TAG:-$(date +'%y%m%d')-$(git log --format=%h -1)}
-      - git tag $TRAVIS_TAG
-  - Github Releases (Master)
+      - "git config --local user.name \"Alexis Rico\""
+      - "git config --local user.email \"sferadev@gmail.com\""
+      - "export TRAVIS_TAG=$(git rev-parse --abbrev-ref HEAD)-${TRAVIS_TAG:-$(date +'%y%m%d')-$(git log --format=%h -1)}"
+      - "git tag $TRAVIS_TAG"
+      - "yarn build-webapp"
+    file: metadata-management.zip
+    provider: releases
+  -
     on:
-      repo: SferaDev/Metadata-Management
       branch: master
-    provider: releases
     api_key:
       secure: aYn4Hd/FuFwpaz0V//5T5OpwEMmBwFxS5aIZBjZty5mKct8aAR/+SBWAmx21V4ekb2OMksc4pvRh6DF2cFsVXDX7UWJ1ngdKH311FnvisoEq4hy7GSTBCfEzELVsSN3MNq5mt9JeENHtAYkk7HlMILUfWWgl21l0seC30adUTfm1pDxB/raRIX6tfAqMIO16p7YtwfAAQvUn9n1RVhA3nTL6hCDh8orqb2JP98wO8tqAWtqjCQZLBcgB8RvH7bOwBn93Co4/Hw5Gf/Y+/eLoVyRZjUwbmP5NwrG60XSOKoG89jZcn1tt6tMmYGqs7cOtMWfNUeQ+elBseh0UZoCBLu6pKPwphjq3wk9qO/NANBN/V908ciaWGeiP9jnu8AZO2m4uTacvWQU3kafg4N/n2kGpkSdHYctJjxXXNTps3z/MEmgvRqp6PUa5X/+Ml37hVZj/dpHYts4xZuwn4xDHfbB10IWPPgaTeQ02OataPm3z5ZjGEwFGSoP6SczH7a0ZOGgSvW7ND3Dbt51aTA3f6p1p9GupicrKJSGGb9WQq+ya9ftbzZ+ENU0147xWttz4tQmCGZj14j4RjaC3ylN6RWxPsReN946FHlSU6/2qag+1yeFDmQ25q/IEEbQK7R4nkKkcTYEOeR3GA27U5GvpLz0dixLPUVbXGnTQtPa6nVs=
-    file: metadata-management.zip
     before_deploy:
-      - git config --local user.name "Alexis Rico"
-      - git config --local user.email "sferadev@gmail.com"
-      - npm version patch
-      - git push origin master
+      - "git config --local user.name \"Alexis Rico\""
+      - "git config --local user.email \"sferadev@gmail.com\""
+      - "npm version patch"
+      - "git push origin master"
+      - "yarn build-webapp"
+    file: metadata-management.zip
+    provider: releases
