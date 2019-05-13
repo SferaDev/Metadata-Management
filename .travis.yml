@@ -1,0 +1,14 @@
+cache: yarn
+jobs:
+  include:
+    - stage: Test
+      script: "yarn test"
+    - stage: "Tag and Deploy"
+      if: "branch = master"
+      name: "Deploy to GitHub"
+      script:
+        - "echo \"True\""
+        - "exit 0"
+language: node_js
+node_js:
+  - "10"
