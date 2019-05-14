@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { HashRouter } from "react-router-dom";
 import HeaderBar from "@dhis2/d2-ui-header-bar";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import JssProvider from "react-jss/lib/JssProvider";
@@ -26,7 +27,7 @@ class App extends Component {
         const { d2 } = this.props;
 
         return (
-            <React.Fragment>
+            <HashRouter>
                 <JssProvider generateClassName={generateClassName}>
                     <MuiThemeProvider theme={muiTheme}>
                         <OldMuiThemeProvider muiTheme={muiThemeLegacy}>
@@ -42,7 +43,7 @@ class App extends Component {
                         </OldMuiThemeProvider>
                     </MuiThemeProvider>
                 </JssProvider>
-            </React.Fragment>
+            </HashRouter>
         );
     }
 }
