@@ -87,16 +87,39 @@ class MetadataDictionary extends React.Component {
         const { d2, match } = this.props;
         const { id } = match.params;
 
-        const metadataTypes = _(d2.models)
-            .keys()
-            .filter(model => {
-                return d2.models[model].isMetaData;
-            })
-            .map(model => {
-                return { label: d2.models[model].displayName, value: model };
-            })
-            .sortBy("label")
-            .sortedUniqBy("label");
+        const metadataTypes = [
+            {
+                label: i18n.t("Favorites"),
+                options: [
+                    {
+                        label: d2.models["dataSets"].displayName,
+                        value: "dataSets",
+                    },
+                    {
+                        label: d2.models["programs"].displayName,
+                        value: "programs",
+                    },
+                    {
+                        label: d2.models["indicators"].displayName,
+                        value: "indicators",
+                    },
+                ],
+            },
+            {
+                label: i18n.t("All"),
+                options: _(d2.models)
+                    .keys()
+                    .filter(model => {
+                        return d2.models[model].isMetaData;
+                    })
+                    .map(model => {
+                        return { label: d2.models[model].displayName, value: model };
+                    })
+                    .sortBy("label")
+                    .sortedUniqBy("label")
+                    .value(),
+            },
+        ];
 
         const mainContent = await this.refreshDictionary(id);
 
