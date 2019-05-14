@@ -46,21 +46,13 @@ renderer.heading = (text, level) => {
     );
 };
 
-const externs = [
-    "https://material.io/",
-    "https://www.styled-components.com/",
-    "https://emotion.sh/",
-    "https://getbootstrap.com/",
-];
-
 renderer.link = (href, title, text) => {
-    let more = "";
-
-    if (externs.some(domain => href.indexOf(domain) !== -1)) {
-        more = ' target="_blank" rel="noopener nofollow"';
-    }
-
-    return `<a href="${href}"${more}>${text}</a>`;
+    return `<a
+            href="${href}"
+            onClick="window.location.href = '${href}'; window.location.reload()"
+        >
+            ${text}
+        </a>`
 };
 
 const markedOptions = {

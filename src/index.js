@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import _ from "lodash";
 import { init, config, getUserSettings, getManifest } from "d2";
-import { BrowserRouter } from "react-router-dom";
 import "font-awesome/css/font-awesome.min.css";
 
 import App from "./components/app/App";
@@ -65,12 +64,7 @@ async function main() {
         loadHeaderBarTranslations(d2);
         const userSettings = await getUserSettings();
         configI18n(userSettings);
-        ReactDOM.render(
-            <BrowserRouter>
-                <App d2={d2} />
-            </BrowserRouter>,
-            document.getElementById("root")
-        );
+        ReactDOM.render(<App d2={d2} />, document.getElementById("root"));
     } catch (err) {
         console.error(err);
         const message = err.toString().match("Unable to get schemas") ? (
