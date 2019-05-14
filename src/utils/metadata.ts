@@ -17,7 +17,7 @@ export async function getMetadata(d2: D2, elements: string[]): Promise<MetadataP
             axios.get(requestUrl, {
                 withCredentials: true,
                 params: {
-                    fields: ":all,!organisationUnits",
+                    fields: ":all,!organisationUnits,dashboardItems[:all,chart[:all]]",
                     filter: "id:in:[" + requestElements + "]",
                     defaults: "EXCLUDE",
                     skipSharing: true,
