@@ -12,6 +12,9 @@ import {
 } from "../utils/metadata";
 import { D2, MetadataPackage } from "../types/d2";
 import { mdLinkId } from "../utils/markdown";
+import { programSpecific } from "../logic/dictionary/programs";
+import { indicatorSpecific } from "../logic/dictionary/indicators";
+import { dataSetSpecific } from "../logic/dictionary/dataSets";
 
 export default class Dictionary {
     private readonly model: string;
@@ -94,71 +97,13 @@ export default class Dictionary {
 
         switch (d2.models[model].name) {
             case "indicator":
-                markdown.push(
-                    `## Formulas`,
-
-                    `### Numerator`,
-                    `**Description:** ${element.numeratorDescription}`,
-                    `**Formula:** ${await getExpression(d2, element.numerator)}`,
-
-                    `### Denominator`,
-                    `**Description:** ${element.denominatorDescription}`,
-                    `**Formula:** ${await getExpression(d2, element.denominator)}`
-                );
+                markdown.push(...(await indicatorSpecific(d2, element)));
                 break;
             case "program":
-                markdown.push(`## Program Stages`);
-
-                for (const programStage of references["programStages"]) {
-                    markdown.push(`### Stage: ${programStage.name}`, programStage.description);
-                    for (const programStageSectionId of programStage.programStageSections) {
-                        const programStageSection = referenceMap.get(programStageSectionId.id);
-                        markdown.push(
-                            `#### Section: ${programStageSection.name}`,
-                            `Number of elements in Section: ${
-                                programStageSection.dataElements.length
-                            }`
-                        );
-
-                        const dataElements = programStageSection.dataElements.map(
-                            (e: any): any => referenceMap.get(e.id)
-                        );
-                        const rows = dataElements.map(
-                            (e: any): any => {
-                                const optionSet = e.optionSet
-                                    ? referenceMap.get(e.optionSet.id)
-                                    : null;
-                                const options = optionSet
-                                    ? optionSet.options.map((e: any): any => referenceMap.get(e.id))
-                                    : [];
-                                const optionsText = options
-                                    .map((e: any): any => mdLinkId(e.id, e.name))
-                                    .join("<br><br>");
-                                return [
-                                    mdLinkId(e.id, e.name),
-                                    e.shortName,
-                                    e.description,
-                                    e.valueType,
-                                    optionsText,
-                                ].map(
-                                    (e): any =>
-                                        typeof e === "string"
-                                            ? e.replace(/(\r\n|\n|\r)/gm, "<br><br>")
-                                            : e
-                                );
-                            }
-                        );
-
-                        markdown.push(
-                            // @ts-ignore FIXME
-                            mdTable([
-                                ["Name", "Form Name", "Description", "Data Type", "Options"],
-                                ...rows,
-                            ])
-                        );
-                    }
-                }
-
+                markdown.push(...programSpecific(references, referenceMap));
+                break;
+            case "dataSet":
+                markdown.push(...dataSetSpecific(references, referenceMap));
                 break;
         }
 

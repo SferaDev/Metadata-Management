@@ -9,6 +9,7 @@
 # production
 manifest.webapp
 /build
+metadata-management.zip
 
 # misc
 .DS_Store

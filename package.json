@@ -89,7 +89,7 @@
     "wait-on": "^3.2.0"
   },
   "manifest.webapp": {
-    "name": "metadata-management",
+    "name": "Metadata Management",
     "description": "Metadata Management",
     "icons": {
       "48": "icon.png"
