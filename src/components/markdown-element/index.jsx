@@ -52,7 +52,7 @@ renderer.link = (href, title, text) => {
             onClick="window.location.href = '${href}'; window.location.reload()"
         >
             ${text}
-        </a>`
+        </a>`;
 };
 
 const markedOptions = {

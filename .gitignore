@@ -32,3 +32,6 @@ cypress/videos/
 
 # IntelliJ
 .idea/*
+
+# React
+src/react-app*.d.ts
