@@ -28,8 +28,32 @@ export async function getMetadata(d2: D2, elements: string[]): Promise<MetadataP
     const result = await Promise.all(promises);
     const merged = _.deepMerge({}, ...result.map(result => result.data));
     if (merged.system) delete merged.system;
+    if (merged.date) delete merged.date;
+    if (merged.users) delete merged.users;
 
     return merged;
+}
+
+export async function getApiMetadata(
+    d2: D2,
+    model: string,
+    element: string
+): Promise<MetadataPackage> {
+    const requestUrl = d2.Api.getApi().baseUrl + `/${model}/${element}/metadata.json`;
+    const result = await axios.get(requestUrl, {
+        withCredentials: true,
+        params: {
+            fields: ":all,!organisationUnits",
+            defaults: "EXCLUDE",
+            skipSharing: true,
+        },
+    });
+    const data = result.data;
+    if (data.system) delete data.system;
+    if (data.date) delete data.date;
+    if (data.users) delete data.users;
+
+    return data;
 }
 
 export function getAllReferences(
