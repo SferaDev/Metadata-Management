@@ -1,5 +1,7 @@
 # Metadata Management
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/SferaDev/Metadata-Management.svg)](https://greenkeeper.io/)
+
 **Status:** Work in progress, not ready for production
 
 ## Application description
