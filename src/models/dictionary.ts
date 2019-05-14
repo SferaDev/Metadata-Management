@@ -113,25 +113,49 @@ export default class Dictionary {
                     markdown.push(`### Stage: ${programStage.name}`, programStage.description);
                     for (const programStageSectionId of programStage.programStageSections) {
                         const programStageSection = referenceMap.get(programStageSectionId.id);
-                        markdown.push(`#### Section: ${programStageSection.name}`,
-                            `Number of elements in Section: ${programStageSection.dataElements.length}`);
+                        markdown.push(
+                            `#### Section: ${programStageSection.name}`,
+                            `Number of elements in Section: ${
+                                programStageSection.dataElements.length
+                            }`
+                        );
 
-                        const dataElements = programStageSection.dataElements.map((e: any): any => referenceMap.get(e.id));
-                        const rows = dataElements.map((e: any): any => {
-                            const optionSet = e.optionSet ? referenceMap.get(e.optionSet.id) : null;
-                            const options = optionSet ? optionSet.options.map((e: any): any => referenceMap.get(e.id)) : [];
-                            const optionsText = options.map((e: any): any => mdLinkId(e.id, e.name)).join('<br><br>');
-                            return [
-                                mdLinkId(e.id, e.name),
-                                e.shortName,
-                                e.description ? e.description.replace(/(\r\n|\n|\r)/gm, '<br><br>') : "",
-                                e.valueType,
-                                optionsText
-                            ];
-                        });
+                        const dataElements = programStageSection.dataElements.map(
+                            (e: any): any => referenceMap.get(e.id)
+                        );
+                        const rows = dataElements.map(
+                            (e: any): any => {
+                                const optionSet = e.optionSet
+                                    ? referenceMap.get(e.optionSet.id)
+                                    : null;
+                                const options = optionSet
+                                    ? optionSet.options.map((e: any): any => referenceMap.get(e.id))
+                                    : [];
+                                const optionsText = options
+                                    .map((e: any): any => mdLinkId(e.id, e.name))
+                                    .join("<br><br>");
+                                return [
+                                    mdLinkId(e.id, e.name),
+                                    e.shortName,
+                                    e.description,
+                                    e.valueType,
+                                    optionsText,
+                                ].map(
+                                    (e): any =>
+                                        typeof e === "string"
+                                            ? e.replace(/(\r\n|\n|\r)/gm, "<br><br>")
+                                            : e
+                                );
+                            }
+                        );
 
-                        // @ts-ignore FIXME
-                        markdown.push(mdTable([["Name", "Form Name", "Description", "Data Type", "Options"], ...rows]))
+                        markdown.push(
+                            // @ts-ignore FIXME
+                            mdTable([
+                                ["Name", "Form Name", "Description", "Data Type", "Options"],
+                                ...rows,
+                            ])
+                        );
                     }
                 }
 
@@ -189,7 +213,12 @@ export default class Dictionary {
                                 : ref[prop.value];
                         details.push(text ? text : ref[prop.value]);
                     }
-                    if (_.compact(details).length > 1) table.push(details);
+                    if (_.compact(details).length > 1)
+                        table.push(
+                            details.map(
+                                (e): any => (e ? e.replace(/(\r\n|\n|\r)/gm, "<br><br>") : e)
+                            )
+                        );
                 }
 
                 // @ts-ignore FIXME
