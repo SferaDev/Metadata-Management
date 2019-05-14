@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-05-09T18:16:55.281Z\n"
-"PO-Revision-Date: 2019-05-09T18:16:55.281Z\n"
+"POT-Creation-Date: 2019-05-14T08:11:05.269Z\n"
+"PO-Revision-Date: 2019-05-14T08:11:05.269Z\n"
 
 msgid "Metadata Dictionary"
 msgstr ""
@@ -18,4 +18,37 @@ msgid "Help"
 msgstr ""
 
 msgid "Back"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Expression"
+msgstr ""
+
+msgid "Filter"
+msgstr ""
+
+msgid "Last update"
+msgstr ""
+
+msgid "Level"
+msgstr ""
+
+msgid "Short name"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Created"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "API link"
 msgstr ""
