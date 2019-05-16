@@ -975,7 +975,7 @@
     lodash "^4.17.10"
     material-ui "^0.20.0"
 
-"@dhis2/d2-ui-core@^6.0.0":
+"@dhis2/d2-ui-core@6.0.0", "@dhis2/d2-ui-core@^6.0.0":
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-6.0.0.tgz#073ba2c652e1cdba34b8548427217df4550bffb1"
   integrity sha512-WS2x62C+DUYulRa57sOzmXz2q1DPFjnIlwMdGBzOPDXTry3XZif9T12EWuA4NpWRwtFRst3mEZtgeGeaUA3Ttg==
@@ -7977,6 +7977,11 @@ load-json-file@^4.0.0:
     pify "^3.0.0"
     strip-bom "^3.0.0"
 
+load-styles@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/load-styles/-/load-styles-2.0.0.tgz#a0901c8f80ef0c869454eb580b4efc2f0be48471"
+  integrity sha1-oJAcj4DvDIaUVOtYC078LwvkhHE=
+
 loader-fs-cache@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/loader-fs-cache/-/loader-fs-cache-1.0.2.tgz#54cedf6b727e1779fd8f01205f05f6e88706f086"
@@ -10655,6 +10660,13 @@ react-dom@^16.8.6:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.13.6"
+
+react-easy-print@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/react-easy-print/-/react-easy-print-0.6.0.tgz#62209c72df4f0c16d9144fc2187b22d7df35844e"
+  integrity sha512-WJnNQCcFYyEMWl0ORfwEHq0Szu8c6TN9jPuxfevwhE4JOFozdi4gK4MN612a2k6jwS4bZOj847xOEyN+FW7oJQ==
+  dependencies:
+    load-styles "^2.0.0"
 
 react-error-overlay@^5.1.6:
   version "5.1.6"
