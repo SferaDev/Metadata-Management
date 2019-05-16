@@ -1011,12 +1011,12 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-header-bar@^5.3.11":
-  version "5.3.11"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-header-bar/-/d2-ui-header-bar-5.3.11.tgz#df41b89cb6d6255406a0559c3be95fbbcb2e1383"
-  integrity sha512-wVaKOOadQj179ArJV3Jr+c7gzaQaynrnqqTUMlbycEjyFzRLzLA4nr9xWSdTjnNQ2WDcZIp4OVWKk6SXG5VHgw==
+"@dhis2/d2-ui-header-bar@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-header-bar/-/d2-ui-header-bar-6.0.0.tgz#c56ac35b387f285c79b62c57f070c87f239b9ae5"
+  integrity sha512-qSlmf3xfBm3SVHlOmmE8wl9Q8zgubSw/VlylcNuwe2IsbkPfkmK43uvAM/8HABJfCJjrXDIgV828A3Rz2kv/tQ==
   dependencies:
-    "@dhis2/d2-ui-core" "5.3.11"
+    "@dhis2/d2-ui-core" "6.0.0"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
