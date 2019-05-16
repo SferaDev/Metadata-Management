@@ -1,5 +1,6 @@
 # Metadata Management
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7b9bf045a9894547a152e2f3448755d4)](https://app.codacy.com/app/SferaDev/Metadata-Management?utm_source=github.com&utm_medium=referral&utm_content=SferaDev/Metadata-Management&utm_campaign=Badge_Grade_Dashboard)
 [![Greenkeeper badge](https://badges.greenkeeper.io/SferaDev/Metadata-Management.svg)](https://greenkeeper.io/)
 
 **Status:** Work in progress, not ready for production
