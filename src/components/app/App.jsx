@@ -7,6 +7,7 @@ import JssProvider from "react-jss/lib/JssProvider";
 import { createGenerateClassName } from "@material-ui/core/styles";
 import OldMuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { SnackbarProvider, LoadingProvider } from "d2-ui-components";
+import PrintProvider, { NoPrint } from 'react-easy-print';
 
 import "./App.css";
 import Root from "./Root";
@@ -32,13 +33,17 @@ class App extends Component {
                     <MuiThemeProvider theme={muiTheme}>
                         <OldMuiThemeProvider muiTheme={muiThemeLegacy}>
                             <LoadingProvider>
-                                <HeaderBar d2={d2} />
+                                <PrintProvider>
+                                    <NoPrint>
+                                        <HeaderBar d2={d2} />
 
-                                <div id="app" className="content">
-                                    <SnackbarProvider>
-                                        <Root d2={d2} />
-                                    </SnackbarProvider>
-                                </div>
+                                        <div id="app" className="content">
+                                            <SnackbarProvider>
+                                                <Root d2={d2} />
+                                            </SnackbarProvider>
+                                        </div>
+                                    </NoPrint>
+                                </PrintProvider>
                             </LoadingProvider>
                         </OldMuiThemeProvider>
                     </MuiThemeProvider>
