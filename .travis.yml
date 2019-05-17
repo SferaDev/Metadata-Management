@@ -20,6 +20,7 @@ deploy:
       branch: development
     api_key:
       secure: aYn4Hd/FuFwpaz0V//5T5OpwEMmBwFxS5aIZBjZty5mKct8aAR/+SBWAmx21V4ekb2OMksc4pvRh6DF2cFsVXDX7UWJ1ngdKH311FnvisoEq4hy7GSTBCfEzELVsSN3MNq5mt9JeENHtAYkk7HlMILUfWWgl21l0seC30adUTfm1pDxB/raRIX6tfAqMIO16p7YtwfAAQvUn9n1RVhA3nTL6hCDh8orqb2JP98wO8tqAWtqjCQZLBcgB8RvH7bOwBn93Co4/Hw5Gf/Y+/eLoVyRZjUwbmP5NwrG60XSOKoG89jZcn1tt6tMmYGqs7cOtMWfNUeQ+elBseh0UZoCBLu6pKPwphjq3wk9qO/NANBN/V908ciaWGeiP9jnu8AZO2m4uTacvWQU3kafg4N/n2kGpkSdHYctJjxXXNTps3z/MEmgvRqp6PUa5X/+Ml37hVZj/dpHYts4xZuwn4xDHfbB10IWPPgaTeQ02OataPm3z5ZjGEwFGSoP6SczH7a0ZOGgSvW7ND3Dbt51aTA3f6p1p9GupicrKJSGGb9WQq+ya9ftbzZ+ENU0147xWttz4tQmCGZj14j4RjaC3ylN6RWxPsReN946FHlSU6/2qag+1yeFDmQ25q/IEEbQK7R4nkKkcTYEOeR3GA27U5GvpLz0dixLPUVbXGnTQtPa6nVs=
+    skip_cleanup: true
     file: metadata-management.zip
     provider: releases
     prerelease: true
