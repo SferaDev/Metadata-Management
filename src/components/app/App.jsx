@@ -7,7 +7,7 @@ import JssProvider from "react-jss/lib/JssProvider";
 import { createGenerateClassName } from "@material-ui/core/styles";
 import OldMuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { SnackbarProvider, LoadingProvider } from "d2-ui-components";
-import PrintProvider, { NoPrint } from 'react-easy-print';
+import PrintProvider, { NoPrint } from "react-easy-print";
 
 import "./App.css";
 import Root from "./Root";

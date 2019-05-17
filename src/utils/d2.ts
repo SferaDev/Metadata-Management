@@ -37,15 +37,13 @@ export const organisationUnitsDetails = [
     { name: "href", text: i18n.t("API link") },
 ];
 
-export function cleanParams(options: Params): Params {
+export const cleanParams = (options: Params): Params => {
     return _.omitBy(options, value => _.isArray(value) && _.isEmpty(value));
-}
+};
 
-export function isD2Model(d2: D2, modelName: string): boolean {
-    return !!d2.models[modelName];
-}
+export const isD2Model = (d2: D2, modelName: string): boolean => !!d2.models[modelName];
 
-export function cleanModelName(d2: D2, id: string, caller: string): string | null {
+export const cleanModelName = (d2: D2, id: string, caller: string): string | null => {
     if (isD2Model(d2, id)) {
         return d2.models[id].plural;
     } else if (id === "attributeValues") {
@@ -57,10 +55,9 @@ export function cleanModelName(d2: D2, id: string, caller: string): string | nul
     } else {
         return null;
     }
-}
+};
 
-export function getClassName(className: string): string | undefined {
-    return _(className)
+export const getClassName = (className: string): string | undefined =>
+    _(className)
         .split(".")
         .last();
-}

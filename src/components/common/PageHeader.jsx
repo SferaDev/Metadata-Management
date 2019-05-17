@@ -23,7 +23,7 @@ const renderHelpButton = helpText => {
     return <DialogButton buttonComponent={Button} title={i18n.t("Help")} contents={helpText} />;
 };
 
-function PageHeader({ variant, title, onBackClick, helpText }) {
+const PageHeader = ({ variant, title, onBackClick, helpText }) => {
     return (
         <div>
             <IconButton
@@ -41,7 +41,7 @@ function PageHeader({ variant, title, onBackClick, helpText }) {
             {helpText && renderHelpButton(helpText)}
         </div>
     );
-}
+};
 
 PageHeader.propTypes = {
     variant: PropTypes.string,

@@ -1,7 +1,4 @@
-export function mdLink(text: string, url: string): string {
-    return `[${text}](${url})`;
-}
+export const mdLink = (text: string, url: string): string => `[${text}](${url})`;
 
-export function mdLinkId(id: string, text: string = id): string {
-    return mdLink(text, `/#/metadata-dictionary/${id}`);
-}
+export const mdLinkId = (id: string, text: string = id): string =>
+    mdLink(text, `/#/metadata-dictionary/${id}`);

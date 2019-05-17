@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Spacer(props) {
+export const Spacer = (props) => {
     const style = {
         width: props.width || "1px",
         height: props.height || "1px",
@@ -9,4 +9,4 @@ export default function Spacer(props) {
     };
 
     return React.createElement("div", { style }, props.children);
-}
+};

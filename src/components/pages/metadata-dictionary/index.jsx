@@ -6,7 +6,7 @@ import i18n from "@dhis2/d2-i18n";
 import { withRouter } from "react-router-dom";
 import { withSnackbar } from "d2-ui-components";
 import { withStyles } from "@material-ui/core";
-import { Print } from 'react-easy-print';
+import { Print } from "react-easy-print";
 
 import PageHeader from "../../common/PageHeader";
 import MarkdownElement from "../../markdown-element";
@@ -155,7 +155,8 @@ class MetadataDictionary extends React.Component {
                 {mainContent && (
                     <Print single name="markdownMainContent">
                         <MarkdownElement className={classes.code} text={mainContent} />
-                    </Print>)}
+                    </Print>
+                )}
             </React.Fragment>
         );
     }
