@@ -1,8 +1,8 @@
 import mdTable from "markdown-table";
 import { mdLinkId } from "../../utils/markdown";
 
-export function buildRows(dataElements: any, referenceMap: Map<string, any>): any {
-    return dataElements.map(
+export const buildRows = (dataElements: any, referenceMap: Map<string, any>): any =>
+    dataElements.map(
         (e: any): any => {
             const optionSet = e.optionSet ? referenceMap.get(e.optionSet.id) : null;
             const options = optionSet
@@ -23,9 +23,8 @@ export function buildRows(dataElements: any, referenceMap: Map<string, any>): an
             );
         }
     );
-}
 
-export function programSpecific(references: any, referenceMap: Map<string, any>): string[] {
+export const programSpecific = (references: any, referenceMap: Map<string, any>): string[] => {
     const markdown: string[] = [];
     markdown.push(`## Program Stages`);
 
@@ -68,4 +67,4 @@ export function programSpecific(references: any, referenceMap: Map<string, any>)
         }
     }
     return markdown;
-}
+};

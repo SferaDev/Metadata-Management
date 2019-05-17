@@ -23,8 +23,6 @@ if (process.browser) {
 
 export { lightTheme, darkTheme };
 
-export function setPrismTheme(theme) {
-    styleNode.textContent = theme;
-}
+export const setPrismTheme = theme => (styleNode.textContent = theme);
 
 export default prism;
