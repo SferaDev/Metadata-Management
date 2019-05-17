@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import ReactGA from 'react-ga';
 import _ from "lodash";
 import { init, config, getUserSettings, getManifest } from "d2";
 import "font-awesome/css/font-awesome.min.css";
@@ -56,6 +57,8 @@ function loadHeaderBarTranslations(d2) {
 }
 
 async function main() {
+    ReactGA.initialize("UA-140303290-2");
+    ReactGA.pageview(window.location.pathname);
     const baseUrl = await getBaseUrl();
     const apiUrl = baseUrl.replace(/\/*$/, "") + "/api";
     try {
