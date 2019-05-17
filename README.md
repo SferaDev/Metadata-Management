@@ -1,9 +1,8 @@
 # Metadata Management
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7b9bf045a9894547a152e2f3448755d4)](https://app.codacy.com/app/SferaDev/Metadata-Management?utm_source=github.com&utm_medium=referral&utm_content=SferaDev/Metadata-Management&utm_campaign=Badge_Grade_Dashboard)
+[![Travis Badge](https://travis-ci.org/SferaDev/Metadata-Management.svg?branch=development)](https://travis-ci.org/SferaDev/Metadata-Management)
 [![Greenkeeper badge](https://badges.greenkeeper.io/SferaDev/Metadata-Management.svg)](https://greenkeeper.io/)
-
-**Status:** Work in progress, not ready for production
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7b9bf045a9894547a152e2f3448755d4)](https://app.codacy.com/app/SferaDev/Metadata-Management?utm_source=github.com&utm_medium=referral&utm_content=SferaDev/Metadata-Management&utm_campaign=Badge_Grade_Dashboard)
 
 ## Application description
 
