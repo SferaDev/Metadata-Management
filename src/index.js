@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import ReactGA from "react-ga";
 import _ from "lodash";
 import { init, config, getUserSettings, getManifest } from "d2";
+import { DataProvider } from "@dhis2/app-runtime";
 import "font-awesome/css/font-awesome.min.css";
 
 import App from "./components/app/App";
@@ -67,7 +68,11 @@ async function main() {
         loadHeaderBarTranslations(d2);
         const userSettings = await getUserSettings();
         configI18n(userSettings);
-        ReactDOM.render(<App d2={d2} />, document.getElementById("root"));
+        ReactDOM.render(
+            <DataProvider baseUrl={baseUrl} apiVersion={d2.system.version.minor}>
+                <App d2={d2} />
+            </DataProvider>
+            , document.getElementById("root"));
     } catch (err) {
         console.error(err);
         const message = err.toString().match("Unable to get schemas") ? (

@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { HashRouter } from "react-router-dom";
-import HeaderBar from "@dhis2/d2-ui-header-bar";
+import { HeaderBar } from "@dhis2/ui-widgets";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import JssProvider from "react-jss/lib/JssProvider";
 import { createGenerateClassName } from "@material-ui/core/styles";
 import OldMuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { SnackbarProvider, LoadingProvider } from "d2-ui-components";
 import PrintProvider, { NoPrint } from "react-easy-print";
+import i18n from "@dhis2/d2-i18n";
 
 import "./App.css";
 import Root from "./Root";
@@ -35,7 +36,7 @@ class App extends Component {
                             <LoadingProvider>
                                 <PrintProvider>
                                     <NoPrint>
-                                        <HeaderBar d2={d2} />
+                                        <HeaderBar appName={i18n.t("Metadata Management")} />
 
                                         <div id="app" className="content">
                                             <SnackbarProvider>
