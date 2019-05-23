@@ -49,7 +49,14 @@ export const dataSetSpecific = (references: any, referenceMap: Map<string, any>)
     const markdown: string[] = [];
     markdown.push(`## Sections`);
 
-    for (const section of references["sections"]) {
+    const sections = references["sections"] || [
+        {
+            name: "Custom Section",
+            dataElements: references["dataElements"],
+        },
+    ];
+
+    for (const section of sections) {
         markdown.push(
             `### Section: ${section.name}`,
             `Number of elements in Section: ${section.dataElements.length}`

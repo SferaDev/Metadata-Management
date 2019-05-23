@@ -71,8 +71,9 @@ async function main() {
         ReactDOM.render(
             <DataProvider baseUrl={baseUrl} apiVersion={d2.system.version.minor}>
                 <App d2={d2} />
-            </DataProvider>
-            , document.getElementById("root"));
+            </DataProvider>,
+            document.getElementById("root")
+        );
     } catch (err) {
         console.error(err);
         const message = err.toString().match("Unable to get schemas") ? (
