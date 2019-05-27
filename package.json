@@ -37,7 +37,7 @@
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
     "react-scripts": "^3.0.1",
-    "react-select": "^2.4.3"
+    "react-select": "^3.0.0"
   },
   "scripts": {
     "prestart": "yarn localize && d2-manifest package.json manifest.webapp",
