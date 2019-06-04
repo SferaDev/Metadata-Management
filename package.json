@@ -3,11 +3,15 @@
   "description": "Metadata Management",
   "version": "0.0.2",
   "license": "GPL-3.0",
-  "author": "Alexis Rico",
+  "author": {
+    "name" : "Alexis Rico",
+    "email" : "about@sferadev.com",
+    "url" : "https://sferadev.com/"
+  },
   "homepage": ".",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SferaDev/metadata-management.git"
+    "url": "https://github.com/SferaDev/metadata-management"
   },
   "dependencies": {
     "@dhis2/app-runtime": "^1.2.0",
