@@ -5,10 +5,22 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-05-21T16:10:11.362Z\n"
-"PO-Revision-Date: 2019-05-21T16:10:11.362Z\n"
+"POT-Creation-Date: 2019-06-04T18:15:00.791Z\n"
+"PO-Revision-Date: 2019-06-04T18:15:00.791Z\n"
 
 msgid "Metadata Management"
+msgstr ""
+
+msgid "Help"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "About Metadata Management"
+msgstr ""
+
+msgid "Advanced Export"
 msgstr ""
 
 msgid "Metadata Dictionary"
@@ -17,10 +29,7 @@ msgstr ""
 msgid "DHIS2 Maintenance"
 msgstr ""
 
-msgid "Help"
-msgstr ""
-
-msgid "Back"
+msgid "About"
 msgstr ""
 
 msgid "Favorites"
