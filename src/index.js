@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import ReactGA from "react-ga";
 import _ from "lodash";
-import { init, config, getUserSettings, getManifest } from "d2";
+import { config, getManifest, getUserSettings, init } from "d2";
 import { DataProvider } from "@dhis2/app-runtime";
 import "font-awesome/css/font-awesome.min.css";
 

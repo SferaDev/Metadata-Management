@@ -10,7 +10,7 @@ import { withRouter } from "react-router";
 import { goToDhis2Url } from "../../../utils/routes";
 
 const lightGray = "#7a7a7a";
-const styles = _theme => ({
+const styles = () => ({
     root: {
         display: "flex",
         justifyContent: "center",
@@ -56,6 +56,8 @@ class Index extends React.Component {
     onClick = key => {
         const { history } = this.props;
         switch (key) {
+            case "about":
+            case "advanced-export":
             case "metadata-dictionary":
                 history.push("/" + key);
                 break;
@@ -71,7 +73,9 @@ class Index extends React.Component {
         const { classes } = this.props;
         const items = [
             ["metadata-dictionary", i18n.t("Metadata Dictionary"), "library_books"],
-            ["dhis2-maintenance", i18n.t("DHIS2 Maintenance"), "import_export"],
+            ["advanced-export", i18n.t("Advanced Export"), "import_export"],
+            ["dhis2-maintenance", i18n.t("DHIS2 Maintenance"), "settings"],
+            ["about", i18n.t("About"), "settings"],
         ];
         const menuItems = items.map(([key, title, icon]) => (
             <GridListTile
