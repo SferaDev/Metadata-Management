@@ -74,6 +74,20 @@ export default class Dictionary {
         return new Dictionary(model, element, references, referenceMap);
     }
 
+    public async generateMarkdown(d2: D2): Promise<string> {
+        const markdown: string[] = [];
+
+        markdown.push(...this.buildTitle());
+
+        markdown.push(...this.buildDescription());
+
+        markdown.push(...(await this.buildSpecificPart(d2)));
+
+        markdown.push(...(await this.buildReferences(d2)));
+
+        return _.join(_.compact(markdown), "\n\n");
+    }
+
     private buildTitle(): string[] {
         return [`# ${this.element.displayName || this.element.name || "Unnamed"}`];
     }
@@ -175,19 +189,5 @@ export default class Dictionary {
         }
 
         return markdown;
-    }
-
-    public async generateMarkdown(d2: D2): Promise<string> {
-        const markdown: string[] = [];
-
-        markdown.push(...this.buildTitle());
-
-        markdown.push(...this.buildDescription());
-
-        markdown.push(...(await this.buildSpecificPart(d2)));
-
-        markdown.push(...(await this.buildReferences(d2)));
-
-        return _.join(_.compact(markdown), "\n\n");
     }
 }

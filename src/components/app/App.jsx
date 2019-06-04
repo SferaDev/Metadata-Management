@@ -4,7 +4,7 @@ import { HashRouter } from "react-router-dom";
 import { HeaderBar } from "@dhis2/ui-widgets";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import OldMuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import { SnackbarProvider, LoadingProvider } from "d2-ui-components";
+import { LoadingProvider, SnackbarProvider } from "d2-ui-components";
 import PrintProvider, { NoPrint } from "react-easy-print";
 import i18n from "@dhis2/d2-i18n";
 

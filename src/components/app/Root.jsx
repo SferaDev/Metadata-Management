@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Switch, Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import LandingPage from "../pages/landing-page";
+import About from "../pages/about";
+import AdvancedExport from "../pages/advanced-export";
 import MetadataDictionary from "../pages/metadata-dictionary";
 
 class Root extends React.Component {
@@ -15,6 +17,13 @@ class Root extends React.Component {
 
         return (
             <Switch>
+                <Route path={"/about/"} render={props => <About d2={d2} {...props} />} />
+
+                <Route
+                    path={"/advanced-export/"}
+                    render={props => <AdvancedExport d2={d2} {...props} />}
+                />
+
                 <Route
                     path={"/metadata-dictionary/:id?"}
                     render={props => <MetadataDictionary d2={d2} {...props} />}
