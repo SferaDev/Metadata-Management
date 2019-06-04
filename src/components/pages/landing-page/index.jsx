@@ -7,7 +7,7 @@ import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import { withStyles } from "@material-ui/core/styles";
 import { withRouter } from "react-router";
-import { goToDhis2Url } from "../../utils/routes";
+import { goToDhis2Url } from "../../../utils/routes";
 
 const lightGray = "#7a7a7a";
 const styles = _theme => ({
@@ -48,7 +48,7 @@ const styles = _theme => ({
     },
 });
 
-class LandingPage extends React.Component {
+class Index extends React.Component {
     static propTypes = {
         d2: PropTypes.object.isRequired,
     };
@@ -99,4 +99,4 @@ class LandingPage extends React.Component {
     }
 }
 
-export default withRouter(withStyles(styles)(LandingPage));
+export default withRouter(withStyles(styles)(Index));

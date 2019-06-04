@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Switch, Route } from "react-router-dom";
 
-import LandingPage from "./LandingPage";
+import LandingPage from "../pages/landing-page";
 import MetadataDictionary from "../pages/metadata-dictionary";
 
 class Root extends React.Component {
