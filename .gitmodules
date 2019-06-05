@@ -1,3 +1,3 @@
 [submodule "src/bridge"]
 	path = src/bridge
-	url = git@github.com:SferaDev/dhis2-bridge.git
+	url = https://github.com/SferaDev/dhis2-bridge.git
