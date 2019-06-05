@@ -1,6 +1,6 @@
 {
   "name": "metadata-management",
-  "description": "Metadata Management",
+  "description": "DHIS2 Application to overview an instance metadata",
   "version": "0.0.2",
   "license": "GPL-3.0",
   "author": {
@@ -85,7 +85,7 @@
   },
   "manifest.webapp": {
     "name": "Metadata Management",
-    "description": "Metadata Management",
+    "description": "DHIS2 Application to overview an instance metadata",
     "icons": {
       "48": "icon.png"
     },
