@@ -1019,10 +1019,10 @@
     classnames "^2.2.6"
     styled-jsx "^3.2.1"
 
-"@dhis2/ui-widgets@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-1.0.3.tgz#e18925ac2e18086ac97280652e5ad8d461f6b9df"
-  integrity sha512-eTFEvXib5I5Mol/mMEUD9p9C1euHA/a/ks38q8i6CNiV2B3C0mGWIzTuhAYSRNGAImhpj4IsmQKxESJ9VLgMpQ==
+"@dhis2/ui-widgets@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-1.0.4.tgz#17ea6d24fa0d62ca70706c3acca43f204703168d"
+  integrity sha512-dE2FYQlvrKy73Sa9KpCcWiRsVgLli//ClNHvq0zuMZB5Y94Lwq0jIwkieilnnQTyqpBakP7eFMBfRlDlfQS7cw==
   dependencies:
     "@dhis2/d2-i18n" "1.0.4"
     "@dhis2/ui-core" "2.0.2"
