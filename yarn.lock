@@ -958,14 +958,7 @@
     moment "^2.22.1"
     rimraf "^2.6.2"
 
-"@dhis2/d2-i18n@1.0.4", "@dhis2/d2-i18n@^1.0.3":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n/-/d2-i18n-1.0.4.tgz#8fbd113f56699b9832a401e1cb8f54d75bc36b9a"
-  integrity sha512-xI2j69q3bwlb374JOAs3wpo47V4BqDAz4h1PfGLVhdORPLAuz0CkKuwesfpW2eunDSHiKpMbOg7goTip/5ROew==
-  dependencies:
-    i18next "^10.3"
-
-"@dhis2/d2-i18n@^1.0.5":
+"@dhis2/d2-i18n@1.0.5", "@dhis2/d2-i18n@^1.0.3", "@dhis2/d2-i18n@^1.0.5":
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n/-/d2-i18n-1.0.5.tgz#9148af1bc95e9442bcae66136b8f80146406a43f"
   integrity sha512-nz1JtDLNn6hOoSg84C1iYRBr11O/ljMdczEqq0/j/gQy9wRs80Z7lExwItclHgS7t6ESWCa6+OFkwgRCOKF2ew==
@@ -1027,12 +1020,12 @@
     classnames "^2.2.6"
     styled-jsx "^3.2.1"
 
-"@dhis2/ui-widgets@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-1.0.6.tgz#6e1f3f974bea528b3e608221d40053d3270d7728"
-  integrity sha512-hS2oQ4wS9qflhXPLeb9v5vZXzVeWJJPwN4ZOzr6XmJY1HOC5HSu5SDKkqdAwAhpbTCPzAuR6lKB3QluWnQD2/w==
+"@dhis2/ui-widgets@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-1.0.7.tgz#3ed68daf7093577a71a0671e3a0ac26caa7342be"
+  integrity sha512-b1bLW0o+OOzpO45bLX64Wpiqz77WwsR+a4oIRSF9+j4B8G6DSX+5luF7dRfigepEfR0Mrz4bohjr0V8VR/0Kzw==
   dependencies:
-    "@dhis2/d2-i18n" "1.0.4"
+    "@dhis2/d2-i18n" "1.0.5"
     "@dhis2/ui-core" "3.3.0"
     classnames "^2.2.6"
     styled-jsx "^3.2.1"
