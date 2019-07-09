@@ -81,7 +81,7 @@
     "jest": "^24.8.0",
     "prop-types": "^15.7.2",
     "ts-jest": "^24.0.2",
-    "typescript": "^3.5.2"
+    "typescript": "^3.5.3"
   },
   "manifest.webapp": {
     "name": "Metadata Management",
