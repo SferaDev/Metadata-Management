@@ -1012,21 +1012,21 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/ui-core@3.3.0":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-3.3.0.tgz#cc83fdaea714851ee616643d260b14b84d25d738"
-  integrity sha512-zPq8PjRdsqPAfCLAo4PuuxONd9X5lXz614BQsFS1yIwNcYI+Rbju41Gym0lu4LMrvetetvxmTNbTcJTIsYTrKA==
+"@dhis2/ui-core@3.5.0":
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-3.5.0.tgz#439a2e18faf540c3b80156d19cf4c236abccecd5"
+  integrity sha512-dgQ1dd/rdWDgXnyTUefyMSZxGAasOC8nPNkZKNdMwQNyGIVAZgmPrpkyidNjJzGoZkaawKO1AzReWe4EgNetog==
   dependencies:
     classnames "^2.2.6"
     styled-jsx "^3.2.1"
 
-"@dhis2/ui-widgets@^1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-1.0.7.tgz#3ed68daf7093577a71a0671e3a0ac26caa7342be"
-  integrity sha512-b1bLW0o+OOzpO45bLX64Wpiqz77WwsR+a4oIRSF9+j4B8G6DSX+5luF7dRfigepEfR0Mrz4bohjr0V8VR/0Kzw==
+"@dhis2/ui-widgets@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-1.0.8.tgz#3237aa2c6b6ec6ccd3ea614b6dbb4d3031267916"
+  integrity sha512-HGde+XVwR9/EPP9DXplgVGXPIYgI8spd63q1yX+Vk0hzu9LcZsebLLmTQDYJLAa1tBcCPQzyoblpJXciH0/Icg==
   dependencies:
     "@dhis2/d2-i18n" "1.0.5"
-    "@dhis2/ui-core" "3.3.0"
+    "@dhis2/ui-core" "3.5.0"
     classnames "^2.2.6"
     styled-jsx "^3.2.1"
 
