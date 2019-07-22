@@ -34,7 +34,7 @@
     "material-ui": "^0.20.2",
     "moment": "^2.24.0",
     "prettier": "^1.18.2",
-    "prismjs": "^1.16.0",
+    "prismjs": "^1.17.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-easy-print": "^0.6.0",
