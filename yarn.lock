@@ -3929,10 +3929,10 @@ d2-manifest@^1.0.0:
     minimist "^1.1.0"
     readline-sync "^1.4.1"
 
-d2-ui-components@^0.0.24:
-  version "0.0.24"
-  resolved "https://registry.yarnpkg.com/d2-ui-components/-/d2-ui-components-0.0.24.tgz#df60c5de992284da24f19929cd90b9895ac08198"
-  integrity sha512-nfGgZpXwjLQplGYwm1YDAM2BIvTLYs/BznLCUnSIT/q4YDyWTbjBCashb9Fn0bzXQ0hAYYYurC1kxkVsejzOvA==
+d2-ui-components@^0.0.28:
+  version "0.0.28"
+  resolved "https://registry.yarnpkg.com/d2-ui-components/-/d2-ui-components-0.0.28.tgz#4acfb3afbbb3b97ba2b1393c9e60b729b2cabd7d"
+  integrity sha512-Uzb6lJYX1kWa2UpuqBFR/wZHTXRoe8jsnFzz6lR3cQTgcjWmEESIn/iwxTnl6A+DpDtPhf2zHqof1+G15/N0+A==
   dependencies:
     "@date-io/moment" "^1.0.2"
     "@dhis2/d2-i18n" "^1.0.3"
